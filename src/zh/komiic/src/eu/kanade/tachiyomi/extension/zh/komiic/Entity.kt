@@ -74,7 +74,12 @@ class ChapterDto(
             else -> throw Exception("未知章節類型：$type")
         }
         url = "$mangaUrl/chapter/${this@ChapterDto.id}"
-        name = "${this@ChapterDto.serial}$suffix（${this@ChapterDto.size}P）"
+        // name = "${this@ChapterDto.serial}$suffix（${this@ChapterDto.size}P）"
+        name = when (this@Chapter.type) {
+            "chapter" -> "第 ${this@ChapterDto.serial} 話"
+            "book" -> "第 ${this@ChapterDto.serial} 卷"
+            else -> this@ChapterDto.serial
+        }
         scanlator = typeName
         date_upload = dateFormat.parse(this@ChapterDto.dateCreated)!!.time
         chapter_number = this@ChapterDto.serial.toFloatOrNull() ?: -1f
