@@ -75,7 +75,7 @@ class ChapterDto(
         }
         url = "$mangaUrl/chapter/${this@ChapterDto.id}"
         // name = "${this@ChapterDto.serial}$suffix（${this@ChapterDto.size}P）"
-        name = when (this@Chapter.type) {
+        name = when (this@ChapterDto.type) {
             "chapter" -> "第 ${this@ChapterDto.serial} 話"
             "book" -> "第 ${this@ChapterDto.serial} 卷"
             else -> this@ChapterDto.serial
