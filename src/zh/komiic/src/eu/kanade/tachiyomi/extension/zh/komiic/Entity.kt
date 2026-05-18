@@ -80,7 +80,7 @@ class ChapterDto(
             "book" -> "第 ${this@ChapterDto.serial} 卷"
             else -> this@ChapterDto.serial
         }
-        scanlator = typeName
+        // scanlator = typeName
         date_upload = dateFormat.parse(this@ChapterDto.dateCreated)!!.time
         chapter_number = this@ChapterDto.serial.toFloatOrNull() ?: -1f
     }
